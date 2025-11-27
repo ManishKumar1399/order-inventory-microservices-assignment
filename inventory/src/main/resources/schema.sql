@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS inventory (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id VARCHAR(255) NOT NULL,
+    batch_id VARCHAR(255) NOT NULL,
+    quantity INTEGER NOT NULL,
+    expiry_date DATE NOT NULL
+);
