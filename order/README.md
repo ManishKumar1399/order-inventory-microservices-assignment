@@ -12,7 +12,7 @@ To run this service, you will need:
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/order-inventory-microservices-assignment.git
+    git clone https://github.com/ManishKumar1399/order-inventory-microservices-assignment.git
     cd order-inventory-microservices-assignment/order
     ```
 
@@ -26,7 +26,7 @@ To run this service, you will need:
     java -jar target/order-0.0.1-SNAPSHOT.jar
     ```
 
-The service will start on port `8080`.
+The service will start on port `8081`.
 
 ### Configuration
 

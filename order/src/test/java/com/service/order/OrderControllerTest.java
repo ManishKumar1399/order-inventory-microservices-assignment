@@ -36,22 +36,22 @@ public class OrderControllerTest {
     void placeOrder_shouldReturnCreated_whenOrderIsPlaced() throws Exception {
         // Arrange
         OrderRequest orderRequest = new OrderRequest();
-        orderRequest.setProductId(1L);
+        orderRequest.setProductId("1");
         orderRequest.setQuantity(5);
 
-        InventoryResponse inventoryResponse = new InventoryResponse();
-        inventoryResponse.setProductId(1L);
-        inventoryResponse.setQuantity(10);
+        InventoryResponse[] inventoryResponses = new InventoryResponse[]{
+                new InventoryResponse("1", "B1", 100, null)
+        };
 
         when(restTemplate.getForObject(anyString(), any(Class.class)))
-                .thenReturn(inventoryResponse);
+                .thenReturn(inventoryResponses);
 
         // Act & Assert
-        mockMvc.perform(post("/api/order")
+        mockMvc.perform(post("/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(orderRequest)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.productId").value(1L))
+                .andExpect(jsonPath("$.productId").value("1"))
                 .andExpect(jsonPath("$.quantity").value(5));
     }
 
@@ -59,18 +59,18 @@ public class OrderControllerTest {
     void placeOrder_shouldReturnBadRequest_whenStockIsInsufficient() throws Exception {
         // Arrange
         OrderRequest orderRequest = new OrderRequest();
-        orderRequest.setProductId(1L);
+        orderRequest.setProductId("1");
         orderRequest.setQuantity(15);
 
-        InventoryResponse inventoryResponse = new InventoryResponse();
-        inventoryResponse.setProductId(1L);
-        inventoryResponse.setQuantity(10);
+        InventoryResponse[] inventoryResponses = new InventoryResponse[]{
+                new InventoryResponse("1", "B1", 10, null)
+        };
 
         when(restTemplate.getForObject(anyString(), any(Class.class)))
-                .thenReturn(inventoryResponse);
+                .thenReturn(inventoryResponses);
 
         // Act & Assert
-        mockMvc.perform(post("/api/order")
+        mockMvc.perform(post("/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(orderRequest)))
                 .andExpect(status().isBadRequest())
