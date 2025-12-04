@@ -10,7 +10,7 @@ WORKDIR /app
 COPY target/order-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the port that the Spring Boot application runs on
-EXPOSE 8080
+EXPOSE 8081
 
 # Run the JAR file when the container launches
 ENTRYPOINT ["java", "-jar", "app.jar"]
