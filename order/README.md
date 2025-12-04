@@ -32,7 +32,7 @@ The service will start on port `8081`.
 
 The following properties can be configured in `src/main/resources/application.properties`:
 
-- `server.port`: The port on which the application will run (default: `8080`).
+- `server.port`: The port on which the application will run (default: `8081`).
 - `spring.h2.console.enabled`: Enables or disables the H2 database console (default: `true`).
 - `spring.datasource.url`: The URL for the H2 database (default: `jdbc:h2:mem:order-db`).
 - `inventory.service.url`: The base URL of the Inventory Service (default: `http://localhost:8081/api/inventory`).
@@ -41,8 +41,8 @@ The following properties can be configured in `src/main/resources/application.pr
 
 The API documentation is generated using Springdoc OpenAPI and is available at:
 
-- [Swagger UI](http://localhost:8080/swagger-ui.html)
-- [OpenAPI Spec](http://localhost:8080/v3/api-docs)
+- [Swagger UI](http://localhost:8081/swagger-ui.html)
+- [OpenAPI Spec](http://localhost:8081/v3/api-docs)
 
 ### Endpoints
 

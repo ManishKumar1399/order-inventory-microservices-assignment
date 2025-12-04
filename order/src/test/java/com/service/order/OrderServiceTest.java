@@ -41,7 +41,7 @@ public class OrderServiceTest {
 
     @BeforeEach
     void setUp() {
-        ReflectionTestUtils.setField(orderService, "inventoryServiceUrl", "http://localhost:8080/inventory");
+        ReflectionTestUtils.setField(orderService, "inventoryServiceUrl", "http://localhost:8081/inventory");
     }
 
     @Test
